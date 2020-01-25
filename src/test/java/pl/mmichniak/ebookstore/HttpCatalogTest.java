@@ -34,9 +34,6 @@ public class HttpCatalogTest {
 
     @Test
     public void itAllowListProductsViaHttpEndpoint() {
-        thereIsPublishedBook("Lord of the rings");
-        thereIsPublishedBook("Hobbit");
-
         ResponseEntity<Book[]> response = http.getForEntity(
                 String.format("http://localhost:%s/api/products", port),
                 Book[].class
@@ -47,16 +44,6 @@ public class HttpCatalogTest {
         assertThat(mapToTitles(response.getBody())).contains("Hobbit");
         assertThat(mapToTitles(response.getBody())).contains("Lord of the rings");
 
-    }
-
-    private void thereIsPublishedBook(String title) {
-        productCatalogFacade.addBook(Book.builder()
-            .title(title)
-                .description(title)
-                .coverUrl("http://cover.dev")
-                .price(BigDecimal.valueOf(120))
-                .isPublished(true)
-                .build());
     }
 
     private List<String> mapToTitles(Book[] books) {
