@@ -21,7 +21,7 @@ public class CatalogConfiguration {
         return Book.builder()
                 .title(title)
                 .description(title)
-                .coverUrl("http://cover.dev")
+                .coverUrl("https://picsum.photos/200/300")
                 .price(BigDecimal.valueOf(120))
                 .isPublished(true)
                 .build();
