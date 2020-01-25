@@ -1,6 +1,10 @@
 package pl.mmichniak.ebookstore;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import pl.mmichniak.ebookstore.productcatalog.Book;
 import pl.mmichniak.ebookstore.productcatalog.ProductCatalogFacade;
 
@@ -9,7 +13,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class ProductCatalogFacadeTest {
+
+    @Autowired
+
 
     @Test
     public void itAllowAddBookToCatalog() {
